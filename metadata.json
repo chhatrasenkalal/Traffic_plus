@@ -1,0 +1,6 @@
+{
+  "name": "TrafficPulse - Adaptive Traffic Signal Digital Twin",
+  "description": "Software-only adaptive traffic signal control digital twin demonstrating how dynamic timing outperforms fixed timers with live parallel metrics and 3D simulation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

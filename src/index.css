@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07090F;
+  --surface: #0E1320;
+  --elevated: #151C2E;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --text: #E8ECF5;
+  --muted: #8A94A9;
+  --primary-accent: #4F8CFF;
+  --adaptive-positive: #2EE6A6;
+  --fixed-warning: #FFB547;
+  --danger: #FF5C6C;
+}
+
+/* Light Theme Variables */
+:root[data-theme="light"],
+html.light,
+.light {
+  --background: #F4F6FB;
+  --surface: #FFFFFF;
+  --elevated: #E9EEF7;
+  --border: rgba(15, 23, 42, 0.10);
+  --border-light: rgba(15, 23, 42, 0.15);
+  --text: #0F172A;
+  --muted: #64748B;
+  --primary-accent: #2563EB;
+  --adaptive-positive: #059669;
+  --fixed-warning: #D97706;
+  --danger: #DC2626;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(14, 19, 32, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-panel-elevated {
+  background: rgba(21, 28, 46, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-panel:hover, .glass-panel-elevated:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 20px -5px rgba(79, 140, 255, 0.08);
+}
+
+/* Light mode overrides for glass panels and text */
+[data-theme="light"] .glass-panel,
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .glass-panel-elevated,
+html.light .glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .glass-panel:hover,
+html.light .glass-panel:hover,
+[data-theme="light"] .glass-panel-elevated:hover,
+html.light .glass-panel-elevated:hover {
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 8px 25px -4px rgba(37, 99, 235, 0.10);
+}
+
+/* Light theme general text & surfaces */
+[data-theme="light"] .bg-\[\#07090F\],
+html.light .bg-\[\#07090F\] {
+  background-color: var(--background) !important;
+}
+
+[data-theme="light"] .bg-\[\#07090F\]\/70,
+html.light .bg-\[\#07090F\]\/70,
+[data-theme="light"] .bg-\[\#07090F\]\/80,
+html.light .bg-\[\#07090F\]\/80,
+[data-theme="light"] .bg-\[\#07090F\]\/90,
+html.light .bg-\[\#07090F\]\/90 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="light"] .bg-\[\#0E1320\],
+html.light .bg-\[\#0E1320\] {
+  background-color: #FFFFFF !important;
+}
+
+[data-theme="light"] .bg-\[\#151C2E\],
+html.light .bg-\[\#151C2E\] {
+  background-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .bg-\[\#111622\],
+html.light .bg-\[\#111622\] {
+  background-color: #CBD5E1 !important;
+}
+
+[data-theme="light"] .text-\[\#E8ECF5\],
+html.light .text-\[\#E8ECF5\] {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .text-white,
+html.light .text-white {
+  color: #0F172A !important;
+}
+
+/* Preserve white text inside colored badges and buttons */
+[data-theme="light"] .bg-\[\#FF5C6C\] .text-white,
+html.light .bg-\[\#FF5C6C\] .text-white,
+[data-theme="light"] button.bg-\[\#FF5C6C\],
+html.light button.bg-\[\#FF5C6C\],
+[data-theme="light"] .bg-\[\#4F8CFF\],
+html.light .bg-\[\#4F8CFF\],
+[data-theme="light"] .bg-blue-600,
+html.light .bg-blue-600,
+[data-theme="light"] .text-white-fixed {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .text-\[\#8A94A9\],
+html.light .text-\[\#8A94A9\] {
+  color: #64748B !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Print styles for /results */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  header, nav, button.no-print, .no-print {
+    display: none !important;
+  }
+
+  .print-page, .print-page * {
+    color: #111827 !important;
+  }
+
+  .print-page .glass-panel, .print-page .glass-panel-elevated {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+    color: #111827 !important;
+  }
+
+  .print-page .text-white, .print-page .text-[#E8ECF5] {
+    color: #111827 !important;
+  }
+
+  .print-page .text-[#8A94A9] {
+    color: #4b5563 !important;
+  }
+
+  .print-page .text-[#2EE6A6] {
+    color: #047857 !important;
+  }
+
+  .print-page .text-[#FFB547] {
+    color: #b45309 !important;
+  }
+
+  .print-page .text-[#FF5C6C] {
+    color: #b91c1c !important;
+  }
+
+  .print-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  * {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
